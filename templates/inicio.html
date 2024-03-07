@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bienvenidos al chat rocketo</title>
+    <style>
+        body {
+            font-family: "Arial Narrow", Arial, sans-serif;
+            background-color: #1DB954; /* Verde característico de Spotify */
+            color: #f3f3f3; /* Texto en blanco */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #191414; /* Negro característico de Spotify */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #1DB954; /* Verde característico de Spotify */
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #1DB954; /* Verde característico de Spotify */
+            border-radius: 5px;
+            background-color: #fff; /* Blanco */
+            color: #000; /* Texto en negro */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1DB954; /* Verde característico de Spotify */
+            color: #fff; /* Texto en blanco */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1ED760; /* Verde claro */
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #fff; /* Texto en blanco */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #540169; /* Verde característico de Spotify */
+        }
+
+        .register-link {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+<body>
+    <h2>Bienvenidos al chat Rocketo</h2>
+    {% if mensaje_error %}
+    <p id="mensaje-error" style="color: rgb(255, 255, 255);">{{ mensaje_error }}</p>  <!-- Muestra el mensaje de error si existe -->
+    {% endif %}
+    <form action="/" method="post">
+        <label for="telefono">Número de Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required><br>
+        <label for="nombre_completo">Nombre Completo:</label>
+        <input type="text" id="nombre_completo" name="nombre_completo" required><br>
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+    <div class="register-link">
+        <p>¿No tienes una cuenta? <a href="/registro">Registrate</a></p>
+    </div>
+
+    <script>
+        // Función para ocultar el mensaje de error después de 5 segundos
+        setTimeout(function() {
+            var mensajeError = document.getElementById('mensaje-error');
+            if (mensajeError) {
+                mensajeError.style.display = 'none';  // Oculta el mensaje de error
+            }
+        }, 5000);  // 5000 milisegundos = 5 segundos
+    </script>
+</body>
+</html>
